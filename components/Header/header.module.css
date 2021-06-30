@@ -1,0 +1,6 @@
+.headerContainer{
+    display: flex;
+    justify-content: space-between;
+    background: burlywood;
+    height: 50px;
+}

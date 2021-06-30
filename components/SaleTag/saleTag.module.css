@@ -1,0 +1,11 @@
+.SaleTag {
+    position: absolute;
+    top: 5px;
+    left: 80px;
+    padding: 5px;
+    padding-top: 10px;
+    display: flex;
+    color: white;
+    background: #282726;
+    border-radius: 50%;
+}
