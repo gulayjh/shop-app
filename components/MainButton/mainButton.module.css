@@ -1,0 +1,18 @@
+.Button a {
+  margin: 10px 0px;
+  padding: 20px 70px;
+  background: #282726;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+  font-weight:lighter;
+  transition: 0.5s;
+  line-height: 13px;
+
+}
+
+.Button a:hover {
+  background: white;
+  color: #282726;
+}
