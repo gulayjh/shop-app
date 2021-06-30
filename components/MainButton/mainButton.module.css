@@ -9,7 +9,7 @@
   font-weight:lighter;
   transition: 0.5s;
   line-height: 13px;
-
+  cursor: pointer;
 }
 
 .Button a:hover {
