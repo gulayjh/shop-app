@@ -15,3 +15,11 @@ a {
   box-sizing: border-box;
 }
 
+/*var(--primary-background-color)*/
+
+:root {
+  --primary-background-color: #282726;
+  --primary-color: #E0E0E0;
+  --secondary-color: #979797;
+  --scroll-color: #302e2f;  
+}
