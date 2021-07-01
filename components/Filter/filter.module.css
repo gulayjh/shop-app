@@ -1,0 +1,14 @@
+.FilterContainer h2 {
+  color: var(--primary-background-color);
+  border-bottom: 1px var(--secondary-color) solid;
+  width: 150px;
+}
+.filterContent{
+    padding-left: 10px;
+}
+
+.filterContent span {
+  color: var(--primary-background-color);
+  padding-left: 10px;
+  font-size: 14px;
+}

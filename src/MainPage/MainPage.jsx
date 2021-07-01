@@ -4,29 +4,17 @@ import Title from '../../components/Title/Title'
 import style from './mainPage.module.css'
 import SaleTag from "../../components/SaleTag/SaleTag";
 import ShowMore from "../../components/ShowMore/ShowMore";
+import PaginationRounded from "../../components/Pagination/Pagination";
+import Filter from "../../components/Filter/Filter";
+import Search from "../../components/Search/Search";
+import SizeChart from "../../components/SizeChart/SizeChart";
+import PriceSlider from "../../components/PriceSlider/PriceSlider";
 
 const MainPage = () => {
     const [productNumber, setProductNumber] = useState(4)
     return (
         <div>
-            {productNumber}
-            <div className={style.ButtonContainer}>
-                <Button
-                    link="asd"
-                    buttonText="asdasd"
-                />
-
-                <ShowMore
-                buttonText="Show More"
-                    setProductNumber={setProductNumber}
-                    productNumber={productNumber}
-                />
-
-            </div>
-            <Title title="hehhye"></Title>
-            <SaleTag type="new"></SaleTag>
-
-
+            
         </div>
     );
 }
