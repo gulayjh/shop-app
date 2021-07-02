@@ -1,17 +1,17 @@
 import React from 'react'
 import { useState } from 'react';
-import style from './login.module.css'
+import style from './signup.module.css'
 import Link from 'next/link'
 import { HiUser, HiMail } from 'react-icons/hi';
 import { AiFillEye, AiFillEyeInvisible, AiOutlineArrowLeft } from 'react-icons/ai';
 
-
-
-const Login = () => {
+const SignUp = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [mail, setMail] = useState('')
     const [usernameCheck, setUsernameCheck] = useState(true)
     const [passwordCheck, setPasswordCheck] = useState(true)
+    const [mailCheck, setMailCheck] = useState(true)
     const [showPassword, setShowPassword] = useState(false)
 
     const handleUserName = (value) => {
@@ -23,6 +23,15 @@ const Login = () => {
             setUsernameCheck(false)
         }
     }
+    const handleMail = (value) => {
+        if (value.length >= 4) {
+            setMail(value)
+            setMailCheck(true)
+
+        } else {
+            setMailCheck(false)
+        }
+    }
     const handlePassword = (value) => {
         if (value.length >= 4) {
             setPassword(value)
@@ -32,8 +41,8 @@ const Login = () => {
         }
     }
     const handleSubmit = () => {
-        if (usernameCheck && passwordCheck) {
-            console.log(username, password);
+        if (usernameCheck && passwordCheck && mailCheck) {
+            console.log(username, password, mail);
         }
     }
 
@@ -68,23 +77,27 @@ const Login = () => {
                     <input onChange={(e) => handleUserName(event.target.value)} placeholder="Username" />
                     <span> <HiUser /> </span>
                 </div>
+                <div className={mailCheck ? null : style.errorText}>
+                    <input onChange={(e) => handleMail(event.target.value)} placeholder="E-Mail" />
+                    <span> <HiMail /> </span>
+                </div>
                 <div className={passwordCheck ? null : style.errorText}>
                     <input type={showPassword ? "text" : "password"} onChange={(e) => handlePassword(event.target.value)} placeholder="Password" />
                     <a onClick={handleClickPassword}> {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />} </a>
                 </div>
 
-                <button className={style.SubmitButton} onClick={() => handleSubmit()}>Login</button>
-                <Link href='/signup'>
-                    <a className={style.SignUpButton}>Sign Up</a>
+                <button className={style.SubmitButton} onClick={() => handleSubmit()}>Submit</button>
+                <Link href='/login'>
+                    <a className={style.loginLink}>Already has an account?</a>
                 </Link>
 
             </div>
 
             <div className={style.LoginContent}>
-                <img className={style.logImage} src="\loginImages\login.png" alt="loginImage" />
+                <img className={style.logImage} src="\loginImages\signup.png" alt="loginImage" />
             </div>
         </div>
     );
 }
 
-export default Login;
+export default SignUp;
