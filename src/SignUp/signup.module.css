@@ -102,28 +102,10 @@
   background: white;
   color: var(--login-color);
 }
-.SignUpButton {
-  margin: 10px 0px;
-  padding: 10px 50px;
-  width: 100%;
-  border-radius: 4px;
-  border: 1px solid var(--login-color);
-  background: white;
+.LoginContainer .loginLink{
+  font-size: 12px;
   color: var(--login-color);
-  display: flex;
-  justify-content: center;
-  font-size: 16px;
-  font-weight: 500;
-  transition: 0.5s;
-  cursor: pointer;
-  outline: none;
 }
-
-.SignUpButton:hover {
-  color: var(--primary-color);
-  background: var(--login-color);
-}
-
 /*third*/
 .LoginContent .logImage {
   width: 300px;
@@ -135,6 +117,7 @@
     justify-content: center;
     flex-wrap: wrap;
     padding: 0px;
+    margin-top: -150px;
   }
   .FirstLoginContent {
     margin-top: 0px;
@@ -145,7 +128,7 @@
     flex-direction: row-reverse;
   }
   .FirstLoginContent div:nth-child(2) {
-    margin-top: 150px;
+    margin-top: 250px;
   }
   .LoginContainer > div {
     flex-basis: 100%;
