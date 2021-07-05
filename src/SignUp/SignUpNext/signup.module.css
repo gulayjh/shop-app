@@ -1,0 +1,155 @@
+.LoginContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+  margin: 10px auto;
+}
+.LoginContainer > div {
+  min-width: 300px;
+  align-items: center;
+  margin: 0px 20px;
+}
+.LoginContainer span,
+.LoginContainer a {
+  font-size: 20px;
+  color: var(--primary-background-color);
+}
+.LoginContainer .LoginContent {
+  margin: 10px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/*first*/
+.FirstLoginContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.FirstLoginContent .LogoContainer {
+  width: 100px;
+  height: 100px;
+  background-image: url("./../../../public/loginImages/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.FirstLoginContent h1 {
+  text-align: left;
+  color: var(--primary-background-color);
+  line-height: 23px;
+}
+.FirstLoginContent h1:nth-child(2) {
+  color: var(--login-color);
+}
+.FirstLoginContent .arrowHome {
+  display: flex;
+  align-items: center;
+}
+/*second*/
+.LoginContainer .LoginContent:nth-child(2) {
+  min-width: 400px;
+  height: 550px;
+  padding: 80px 50px;
+  background: #ffffff;
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.LoginContainer input {
+  border: none;
+  width: 100%;
+  outline: none;
+  padding-left: 10px;
+  font-size: 15px;
+  color: var(--secondary-color);
+}
+.LoginContainer input[type="number"]::-webkit-inner-spin-button,
+.LoginContainer input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.LoginContent div {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.SignUpRow div {
+  font-size: 15px;
+  color: var(--secondary-color);  /* border-bottom: 1px var(--secondary-color) solid; */
+  margin-left: 5px;
+}
+.SignUpRow:nth-child(2){
+  display: flex;
+  align-items: center;
+}
+.LoginContainer .errorText {
+  border-bottom: 3px solid red;
+}
+.GenderContent{
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  padding-right: 0px;
+}
+.SubmitButton {
+  border-radius: 4px;
+  margin: 10px 0px;
+  padding: 10px 50px;
+  width: 100%;
+  background: var(--login-color);
+  color: white;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.5s;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.SubmitButton:hover {
+  border-radius: 4px;
+  background: white;
+  color: var(--login-color);
+}
+.LoginContainer .loginLink {
+  font-size: 12px;
+  color: var(--login-color);
+}
+/*third*/
+
+.LoginContent .logImage {
+  width: 300px;
+  height: auto;
+  margin-top: 50px;
+}
+
+@media only screen and (max-width: 900px) {
+  .LoginContainer {
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0px 50px;
+    margin-top: -150px;
+  }
+
+  .FirstLoginContent {
+    margin-top: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-direction: row-reverse;
+  }
+  .FirstLoginContent div:nth-child(2) {
+    margin-top: 250px;
+  }
+  .LoginContainer > div {
+    flex-basis: 100%;
+    align-items: center;
+  }
+}

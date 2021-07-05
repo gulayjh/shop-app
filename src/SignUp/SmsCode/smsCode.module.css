@@ -1,0 +1,48 @@
+.SmsCodeContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.SmsCode{
+    margin-top: 100px;
+}
+.verificationInput {
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+}
+
+.verificationInput input {
+  border-radius: 0 !important;
+  text-align: center;
+  margin: 0 12px;
+  border: 0 !important;
+  border-bottom: 2px solid #e0e0e0 !important;
+  font-family: Inter !important;
+  font-weight: 600 !important;
+  font-size: 28px !important;
+  line-height: 56px !important;
+  color: var(--login-color) !important;
+}
+
+.verificationInput input[type="number"]::-webkit-inner-spin-button,
+.verificationInput input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.verificationInput input::placeholder {
+  color: #221c1c !important;
+}
+
+.verificationInput input:focus {
+  color: #44464a !important;
+  border-bottom: 2px solid #6fb148 !important;
+}
+@media only screen and (max-width: 768px) {
+  .verificationInput input {
+    font-size: 16px !important;
+  }
+}

@@ -1,0 +1,34 @@
+.Popup {
+  height: 80%;
+  width: 60%;
+  box-shadow: 2px 3px 8px var(--login-color);
+  position: fixed;
+  margin: 50px auto;
+  background: white;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  z-index: 100;
+  overflow-x: hidden;
+  overflow-y: auto;
+  animation: fadeIn 1s;
+}
+
+.ChildContainer {
+  padding-top: 25px;
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
