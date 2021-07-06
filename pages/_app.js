@@ -3,9 +3,12 @@ import '../styles/globals.css'
 import Footer from '../components/Footer/footer'
 import Header from '../components/Header/header'
 import Router, { useRouter } from 'next/router'
+import SideDrawer from '../components/Header/SideDrawer/SideDrawer'
+import { useState } from 'react'
 
 function MyApp({ Component, pageProps }) {
   const { asPath } = useRouter()
+  const [sideDrawer, setSideDrawer] = useState(false)
 
   return (
     <>
@@ -14,10 +17,17 @@ function MyApp({ Component, pageProps }) {
         <title>Shop</title>
       </Head>
 
-            <Header />
-            <Component {...pageProps} />
-            <Footer />
-         
+      <Header
+        setSideDrawer={setSideDrawer}
+      />
+      {
+        sideDrawer ?
+          <SideDrawer />
+          : null
+      }
+      <Component {...pageProps} />
+      <Footer />
+
     </>
   )
 }

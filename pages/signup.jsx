@@ -1,3 +1,4 @@
+
 import SignUp from "../src/SignUp/SignUpNext/SignUp"
 import PhoneCheck from "../src/SignUp/PhoneCheck/PhoneCheck"
 import MainPage from "../src/MainPage/MainPage"
@@ -11,6 +12,7 @@ export default function signup() {
     const [checkedPhone, setCheckedPhone] = useState('')
     const [smsCode, setSmsCode] = useState()
     const [showModal, setShowModal] = useState(false)
+  
     return (
         <div>
 

@@ -1,0 +1,16 @@
+.RightContent {
+  display: flex;
+  height: 100px;
+  padding-right: 20px;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 25px;
+}
+.RightContent a{
+    padding-left: 20px;
+    color: var(--primary-background-color);
+}
+
+.RightContent a:hover{
+    color: var(--login-color);
+}

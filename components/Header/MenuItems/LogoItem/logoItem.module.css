@@ -1,0 +1,9 @@
+.LogoItem {
+    width: 100px;
+    height: 100px;
+    background-image: url("./../../public/loginImages/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  

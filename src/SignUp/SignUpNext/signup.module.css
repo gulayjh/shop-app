@@ -79,17 +79,25 @@
 }
 .SignUpRow div {
   font-size: 15px;
-  color: var(--secondary-color);  /* border-bottom: 1px var(--secondary-color) solid; */
+  color: var(
+    --secondary-color
+  ); /* border-bottom: 1px var(--secondary-color) solid; */
   margin-left: 5px;
 }
-.SignUpRow:nth-child(2){
+.GenderContent {
   display: flex;
+  flex-direction: column;
   align-items: center;
+}
+.GenderContent span{
+  flex-basis: 50%;
+  font-size: 15px;
+  color: var(--secondary-color);
 }
 .LoginContainer .errorText {
   border-bottom: 3px solid red;
 }
-.GenderContent{
+.GenderContent {
   display: flex;
   align-items: center;
   margin-top: 15px;
