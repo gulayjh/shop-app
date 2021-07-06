@@ -130,7 +130,7 @@
   height: auto;
   margin-top: 50px;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 900px) {
   .LoginContainer {
     justify-content: center;
     flex-wrap: wrap;

@@ -9,15 +9,18 @@ import { HiUser, HiMail } from 'react-icons/hi';
 import { AiFillEye, AiFillEyeInvisible, AiOutlineArrowLeft } from 'react-icons/ai';
 
 const SignUp = (props) => {
-    const token = getUserToken()
     const [data, setData] = useState('')
+    const [genderData, setGenderData] = useState('')
+    const token = getUserToken()
 
+    useEffect(() => {
+        axios.get(baseURL + `Account/getgenders?lng=en`)
+            .then(response => setGenderData(response.data.obj));
+    }, [])
     useEffect(() => {
         handleSignUp()
     }, [data])
 
-
-    console.log(token, "sjhdjs");
     const [firstName, setFirstname] = useState('')
     const [lastName, setLastname] = useState('')
     const [gender, setGender] = useState('')
@@ -105,7 +108,7 @@ const SignUp = (props) => {
             props.setSignedIn(true)
         }
     }
-
+    console.log(genderData);
 
     const handleClickPassword = () => {
         setShowPassword(!showPassword)
@@ -141,20 +144,20 @@ const SignUp = (props) => {
                     </div>
                 </div>
                 <div className={style.SignUpRow}>
-                    <div className={genderCheck ? null : style.errorText}>
-                        <label htmlFor="male">Male</label>
-                        <input name="gender" type="radio" onChange={(e) => handleGender(event.target.value)} id="male" value="0" />
-                        <label htmlFor="female">Female</label>
-                        <input name="gender" type="radio" onChange={(e) => handleGender(event.target.value)} id="female" value="1" />
+                    <div className={style.GenderContent}>
+                        {genderData && genderData.length && genderData.map((item) => (
+                            <div className={genderCheck ? null : style.errorText}>
+                                <span>{item.name}</span>
+                                <input name="gender" type="radio" onChange={(e) => handleGender(event.target.value)} value={item.id} />
+                            </div>
+                        ))}
                     </div>
-                </div>
-                <div className={style.SignUpRow}>
 
                     <div className={birthdayCheck ? null : style.errorText}>
                         <input type="date" onChange={(e) => handleBirthday(event.target.value)} placeholder="Username" />
                     </div>
-
                 </div>
+
                 <div className={mailCheck ? null : style.errorText}>
                     <input onChange={(e) => handleMail(event.target.value)} placeholder="E-Mail" />
                     <span> <HiMail /> </span>
@@ -174,8 +177,7 @@ const SignUp = (props) => {
             <div className={style.LoginContent}>
                 <img className={style.logImage} src="\loginImages\signup.png" alt="loginImage" />
             </div>
-        </div>
+        </div >
     );
 }
-
 export default SignUp;

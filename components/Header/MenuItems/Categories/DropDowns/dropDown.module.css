@@ -1,0 +1,8 @@
+.DropDownContent {
+  width: 150px;
+  padding-top: 50px;
+  background: white;
+  word-wrap: break-word;
+  position: absolute;
+  z-index: 555;
+}

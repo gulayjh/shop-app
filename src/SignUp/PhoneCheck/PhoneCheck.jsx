@@ -18,7 +18,6 @@ const SignUp = (props) => {
         if (value.length == 9) {
             setPhonenumber('994' + value)
             setPhonenumberCheck(true)
-
         } else {
             setPhonenumberCheck(false)
         }

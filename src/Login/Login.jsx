@@ -1,3 +1,5 @@
+import axios from 'axios';
+import { baseURL, getUserToken } from '../../utils';
 import React from 'react'
 import { useState } from 'react';
 import style from './login.module.css'
@@ -5,22 +7,19 @@ import Link from 'next/link'
 import { HiUser, HiMail } from 'react-icons/hi';
 import { AiFillEye, AiFillEyeInvisible, AiOutlineArrowLeft } from 'react-icons/ai';
 
-
-
 const Login = () => {
-    const [username, setUsername] = useState('')
+    const [phonenumber, setPhonenumber] = useState('')
     const [password, setPassword] = useState('')
-    const [usernameCheck, setUsernameCheck] = useState(true)
+    const [phonenumberCheck, setPhonenumberCheck] = useState(true)
     const [passwordCheck, setPasswordCheck] = useState(true)
     const [showPassword, setShowPassword] = useState(false)
-
+    const token = getUserToken()
     const handleUserName = (value) => {
         if (value.length >= 4) {
-            setUsername(value)
-            setUsernameCheck(true)
-
+            setPhonenumber(value)
+            setPhonenumberCheck(true)
         } else {
-            setUsernameCheck(false)
+            setPhonenumberCheck(false)
         }
     }
     const handlePassword = (value) => {
@@ -32,12 +31,21 @@ const Login = () => {
         }
     }
     const handleSubmit = () => {
-        if (usernameCheck && passwordCheck) {
-            console.log(username, password);
+        if (phonenumberCheck && passwordCheck) {
+            const LoginData = {
+                "phonenumber": phonenumber,
+                "password": password,
+                "oldToken": token
+            }
+
+            axios.post(baseURL + `Account/register`, LoginData)
+            then((response) => {
+                if ((response.data.statusCode===200)) {
+                    props.setLoggedIn(true)
+                }
+            })
         }
     }
-
-
 
     const handleClickPassword = () => {
         setShowPassword(!showPassword)
@@ -64,8 +72,8 @@ const Login = () => {
 
             </div>
             <div className={style.LoginContent}>
-                <div className={usernameCheck ? null : style.errorText}>
-                    <input onChange={(e) => handleUserName(event.target.value)} placeholder="Username" />
+                <div className={phonenumberCheck ? null : style.errorText}>
+                    <input onChange={(e) => handleUserName(event.target.value)} placeholder="Phone" />
                     <span> <HiUser /> </span>
                 </div>
                 <div className={passwordCheck ? null : style.errorText}>
@@ -75,7 +83,7 @@ const Login = () => {
 
                 <button className={style.SubmitButton} onClick={() => handleSubmit()}>Login</button>
                 <Link href='/signup'>
-                    <a className={style.SignUpButton}>Sign Up</a>
+                    <button className={style.SignUpButton}>Sign Up</button>
                 </Link>
 
             </div>
