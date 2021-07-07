@@ -1,0 +1,28 @@
+.newSale h2 {
+    font-size: 21px;
+    line-height: 25px;
+    letter-spacing: 0.459375px;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 70px;
+    margin-top: 70px;
+    text-transform: uppercase;
+}
+.cardList {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+.cardButton {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media only screen and (max-width: 610px) {
+    .cardList {
+        justify-content: center;
+    }
+}

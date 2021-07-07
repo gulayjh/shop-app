@@ -1,0 +1,41 @@
+.bestSellerCard {
+    width: 240px;
+}
+.bestSellerCard img {
+    width: 100%;
+}
+.cardDetail {
+    padding: 10px;
+}
+.cardDetail h4 {
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    letter-spacing: 0.29375px;
+    color: #282726;
+}
+.cardDetail h5 {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 17px;
+    text-align: center;
+    letter-spacing: 0.35px;
+    color: #282726;
+    margin-top: 5px;
+}
+@media only screen and (max-width: 800px) {
+    .bestSellerCard {
+        width: 200px;
+        
+    }
+}
+@media only screen and (max-width: 610px) {
+    .bestSellerCard {
+        width: 156px;
+    }
+}
+@media only screen and (max-width: 610px){
+    .cardDetail h5, .cardDetail h4{
+        font-size: 14px;
+    }
+}

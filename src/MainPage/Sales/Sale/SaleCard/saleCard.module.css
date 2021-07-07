@@ -1,0 +1,50 @@
+.saleCard {
+    position: relative;
+    flex: 0 1 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+}
+.saleCard img {
+    max-width: 242px;
+}
+.cardDetail {
+    padding: 10px;
+}
+.cardDetail h4 {
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    letter-spacing: 0.29375px;
+    color: #282726;
+}
+.cardDetail h5 {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 17px;
+    text-align: center;
+    letter-spacing: 0.35px;
+    color: #282726;
+    margin-top: 5px;
+}
+@media only screen and (max-width: 1000px) {
+    .saleCard {
+        flex: 0 1 33.33%;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .saleCard {
+        flex: 0 1 50%;
+    }
+}
+@media only screen and (max-width: 610px) {
+    .cardDetail h5,
+    .cardDetail h4 {
+        font-size: 14px;
+    }
+    .saleCard img {
+        max-width: 156px;
+        max-height: 156px;
+    }
+}

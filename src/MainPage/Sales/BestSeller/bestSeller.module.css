@@ -1,0 +1,51 @@
+.bestSeller h2 {
+    font-size: 21px;
+    line-height: 25px;
+    letter-spacing: 0.459375px;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    text-transform: uppercase;
+}
+.sellerMenu ul {
+    margin:0 auto;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 60px;
+}
+
+.sellerMenu ul li {
+    list-style: none;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.09375px;
+    color: #a57b51;
+    text-transform: uppercase;
+}
+.cardList{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+.cardButton{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 610px) {
+    .cardList {
+        justify-content: center;
+    }
+    .sellerMenu ul{
+        width: 200px;
+    }
+}

@@ -1,11 +1,30 @@
 .SaleTag {
     position: absolute;
-    top: 5px;
-    left: 80px;
-    padding: 5px;
-    padding-top: 10px;
+    top: 0px;
+    right: 10px;
+    padding: 10px;
     display: flex;
-    color: var(--primary-color);
-    background: var(--primary-background-color);
+    color: white;
+    background: #282726;
     border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+}
+/* @media only screen and (max-width: 800px){
+    .SaleTag{
+        left: 150px;
+    }
+} */
+@media only screen and (max-width: 600px){
+    .SaleTag{
+        width: 30px;
+        height: 30px;
+        font-size: 10px;
+    }
 }

@@ -26,6 +26,7 @@ function MyApp({ Component, pageProps }) {
           : null
       }
       <Component {...pageProps} />
+
       <Footer />
 
     </>
