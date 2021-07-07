@@ -7,6 +7,7 @@ const MainPage = () => {
     const [productNumber, setProductNumber] = useState(4);
 
     return (
+
         <div className={style.mainContainer}>
             <MainSlider />
             <div className={style.mainDescription}>
@@ -19,6 +20,7 @@ const MainPage = () => {
                 </h5>
             </div>
             <Sale />
+
         </div>
     );
 };
