@@ -14,6 +14,7 @@ const MainPage = () => {
     const [productNumber, setProductNumber] = useState(4)
     return (
         <div>
+            <PriceSlider/>
             mainpage
         </div>
     );

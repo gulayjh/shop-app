@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { baseURL, getUserToken } from '../../utils';
-import React from 'react'
-import { useState } from 'react';
+import React, { useState } from 'react'
 import style from './login.module.css'
 import Link from 'next/link'
 import { HiUser, HiMail } from 'react-icons/hi';
@@ -39,8 +38,8 @@ const Login = () => {
             }
 
             axios.post(baseURL + `Account/register`, LoginData)
-            then((response) => {
-                if ((response.data.statusCode===200)) {
+            .then((response) => {
+                if ((response.data.statusCode === 200)) {
                     props.setLoggedIn(true)
                 }
             })
