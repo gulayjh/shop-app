@@ -2,7 +2,8 @@ import React, { useEffect } from 'react'
 import Layout from '../components/Layout/Layout'
 import MainPage from '../src/MainPage/MainPage'
 import axios from "axios"
-import { setUserToken, getUserToken, baseURL } from "../utils"
+import { setUserToken, getUserToken, baseURL } from "../utils";
+import "../src/i18n";
 
 export default function index() {
 	const token = getUserToken()

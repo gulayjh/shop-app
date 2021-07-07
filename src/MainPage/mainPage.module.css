@@ -1,3 +1,61 @@
-.ButtonContainer{
+.ButtonContainer {
     margin-top: 50px;
+}
+.mainContainer {
+    width: 1140px;
+    margin: 0 auto;
+}
+.mainDescription {
+    margin: 0 auto;
+    width: 820px;
+    margin-top: 30px;
+    padding: 30px;
+    padding-bottom: 60px;
+}
+.mainDescription h3 {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.35px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.mainDescription h5 {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.35px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 1140px) {
+    .mainContainer {
+        width: 1000px;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .mainContainer {
+        width: 800px;
+    }
+    .mainDescription {
+        width: 100%;
+        font-size: 14px;
+    }
+    .mainDescription h5 {
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .mainContainer {
+        width: 100%;
+        padding: 0 10px;
+    }
+    .mainDescription {
+        width: 100%;
+        font-size: 11px;
+    }
 }
