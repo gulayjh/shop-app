@@ -1,6 +1,37 @@
-.headerContainer{
-    display: flex;
-    justify-content: space-between;
-    background: burlywood;
-    height: 50px;
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.1);
+  height: 80px;
+}
+.menuButton {
+  padding-left: 30px;
+  border: none;
+  background: none;
+  font-size: 25px;
+}
+.LogoItem a {
+  width: 100px;
+  display: block;
+  height: 100px;
+  background-image: url("./../../public/loginImages/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.ResponsiveMenu {
+  position: absolute;
+  top: 80px;
+  height: 100vh;
+  width: 80%;
+  padding-left: 50px;
+  padding-top: 50px;
+  background: var(--primary-color);
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.8s;
+  font-size: 14px;
+}
+.CategoriesContent {
+  margin-top: 40px;
 }

@@ -1,10 +1,11 @@
 .Button a {
   margin: 10px 0px;
   padding: 10px 50px;
-  background: #282726;
+  width: 160px;
+  background: var(--primary-background-color);
+  color: var(--primary-color);
   display: flex;
   justify-content: center;
-  color: white;
   font-size: 16px;
   font-weight: 500;
   transition: 0.5s;
@@ -12,6 +13,6 @@
 }
 
 .Button a:hover {
-  background: white;
-  color: #282726;
+  background: var(--primary-color);
+  color: var(--primary-background-color);
 }
