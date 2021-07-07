@@ -10,7 +10,7 @@ const DropDown = (props) => {
                     if (item.parentId === props.id) {
                         return (
                             <div>
-                                <Link href='/'>
+                                <Link href={`/catalog?id=${item.id}`}>
                                     <a>
                                         {item.name}
                                     </a>
