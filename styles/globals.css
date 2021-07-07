@@ -16,6 +16,10 @@ a {
   box-sizing: border-box;
 }
 
+.js-image-zoom__zoomed-image{
+  margin-top: 140px;
+}
+
 /*var(--primary-background-color)*/
 
 :root {
