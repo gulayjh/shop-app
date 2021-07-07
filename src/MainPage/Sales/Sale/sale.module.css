@@ -26,10 +26,29 @@
     display: flex;
     justify-content: center;
 }
+.saleCard {
+    position: relative;
+    flex: 0 1 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    cursor: pointer;
+}
+@media (max-width: 1000px){
+    .saleCard{
+        flex: 0 1 33.33%;
+    }
+}
+@media (max-width: 750px){
+    .saleCard{
+        flex: 0 1 50%;
+    }
+}
 
 @media only screen and (max-width: 610px) {
     .cardList {
-        padding: 0 30px;
+        padding: 0;
     }
     .sale h2 {
         margin-top: 25px;

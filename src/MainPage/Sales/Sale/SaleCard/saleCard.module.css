@@ -1,6 +1,5 @@
 .saleCard {
     position: relative;
-    flex: 0 1 25%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,16 +27,7 @@
     color: #282726;
     margin-top: 5px;
 }
-@media only screen and (max-width: 1000px) {
-    .saleCard {
-        flex: 0 1 33.33%;
-    }
-}
-@media only screen and (max-width: 800px) {
-    .saleCard {
-        flex: 0 1 50%;
-    }
-}
+
 @media only screen and (max-width: 610px) {
     .cardDetail h5,
     .cardDetail h4 {
