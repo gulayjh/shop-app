@@ -1,7 +1,6 @@
 .Button a {
   margin: 10px 0px;
   padding: 10px 50px;
-  width: 160px;
   background: var(--primary-background-color);
   color: var(--primary-color);
   display: flex;

@@ -5,12 +5,13 @@ import Sale from "./Sales/Sale/Sale";
 
 const MainPage = () => {
     const [productNumber, setProductNumber] = useState(4);
-
+ 
     return (
+
         <div className={style.mainContainer}>
             <MainSlider />
             <div className={style.mainDescription}>
-                <h3>Our Philosophy</h3>
+                <h3>Our philosophy</h3>
                 <h5>
                     We're driven by community and often team up with brands we
                     love and other like-minded individuals. It is our goal to
@@ -19,6 +20,7 @@ const MainPage = () => {
                 </h5>
             </div>
             <Sale />
+
         </div>
     );
 };

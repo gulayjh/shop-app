@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, Fragment, useState } from "react";
 import style from "./sale.module.css";
 import SaleCard from "./SaleCard/SaleCard";
 import ShowMore from "../../../../components/ShowMore/ShowMore";
@@ -57,11 +57,13 @@ const Sale = () => {
                                                 }}
                                                 key={v.id}
                                             >
-                                                <SaleCard
-                                                    price={v.price}
-                                                    name={v.name}
-                                                    image={v.imageUrl}
-                                                />
+                                                <div className={style.saleCard}>
+                                                    <SaleCard
+                                                        price={v.price}
+                                                        name={v.name}
+                                                        image={v.imageUrl}
+                                                    />
+                                                </div>
                                             </Link>
                                         )
                                     );
