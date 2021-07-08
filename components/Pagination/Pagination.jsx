@@ -11,12 +11,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PaginationRounded(props) {
+export default function PaginationRounded({count}) {
   const classes = useStyles();
 
+  
   return (
     <div className={classes.root}>
-      <Pagination count={props.count}  color="primary" shape="rounded" />
+      <Pagination count={count}  color="primary" shape="rounded" />
     </div>
   );
 }

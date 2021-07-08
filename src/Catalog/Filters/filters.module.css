@@ -1,0 +1,24 @@
+.FilterContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.FilterContent > div > button {
+  width: 250px;
+  padding: 10px 0px;
+  margin-bottom: 10px;
+  background: none;
+  border: 1px solid var(--primary-background-color);
+  border-radius: 4px;
+  color: var(--primary-background-color);
+  font-size: 18px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.FilterCheckboxContent {
+  color: var(--secondary-color);
+  padding-left: 20px;
+}
+.FilterCheckboxContent span {
+  padding-left: 10px;
+}
