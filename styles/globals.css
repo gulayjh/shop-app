@@ -29,3 +29,15 @@ a {
     --login-color: #a57b51;
     --scroll-color: #302e2f;
 }
+
+.notFound{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    height: 70vh;
+    letter-spacing: 1px;
+}
+.notFound h3 a{
+    text-decoration: underline;
+}
