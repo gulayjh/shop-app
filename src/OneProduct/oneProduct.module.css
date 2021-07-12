@@ -85,22 +85,10 @@
     overflow: hidden;
 }
 
-.quantityButton input[type="number"] {
-    width: 56px;
-    height: 56px;
-    outline: none;
+.quantityButton button {
     border: none;
-    text-align: center;
-    font-size: 22px;
-    -webkit-appearance: none;
-    vertical-align: middle;
-}
-.quantityButton input::-webkit-outer-spin-button,
-.quantityButton input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
-
-.quantityButton div {
+    outline: none;
+    background-color: #FFF;
     font-size: 26px;
     font-weight: 500;
     text-align: center;
@@ -115,10 +103,11 @@
     user-select: none;
 }
 
-.quantityButton div:hover {
+.quantityButton button:hover {
     background-color: #282726;
     color: #fff;
 }
+
 
 .productColor h4 {
     font-size: 21px;

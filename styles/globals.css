@@ -1,31 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: 'Poppins', sans-serif;  
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-.js-image-zoom__zoomed-image{
-  margin-top: 140px;
+.js-image-zoom__zoomed-image {
+    margin-top: 140px;
 }
 
 /*var(--primary-background-color)*/
 
 :root {
-  --primary-background-color: #282726;
-  --primary-color: #E0E0E0;
-  --secondary-color: #979797;
-  --login-color: #A57B51;
-  --scroll-color: #302e2f;  
+    --primary-background-color: #282726;
+    --primary-color: #e0e0e0;
+    --secondary-color: #979797;
+    --login-color: #a57b51;
+    --scroll-color: #302e2f;
 }

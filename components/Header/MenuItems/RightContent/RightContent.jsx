@@ -7,7 +7,7 @@ import { RiShoppingCart2Fill, RiUser3Fill, RiHeart3Fill } from 'react-icons/ri';
 const RightContent = () => {
     return (
         <div className={style.RightContent}>
-            <Link href='/'>
+            <Link href='/cart'>
                 <a>
                     <RiShoppingCart2Fill />
                 </a>
