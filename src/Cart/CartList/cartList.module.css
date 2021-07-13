@@ -1,0 +1,231 @@
+.cartlist {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    flex-flow: column;
+}
+
+.listHeadArea {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    background-color: #faf9f6;
+}
+.listHead div {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 500;
+}
+
+.listHead {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row;
+    align-items: center;
+}
+.listItemArea {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+
+.listItem {
+    width: 100%;
+    height: 165px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row;
+    border-bottom: 1px solid #e0e0e0;
+}
+.listHead div,
+.listImg,
+.quantity,
+.unitPrice,
+.totalPrice,
+.removeItem {
+    flex-basis: 120px;
+}
+.listHead div:nth-child(2),
+.listDesc {
+    flex-basis: 150px;
+}
+
+.listDetail div span:nth-child(2) {
+    padding: 0 3px 0 6px;
+}
+
+.listDesc {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-flow: column;
+    justify-content: center;
+    font-size: 12px;
+    padding: 0 5px;
+}
+.listName {
+    max-height: 54px;
+    margin-bottom: 10px;
+}
+
+.listImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.listImg img {
+    max-width: 120px;
+}
+
+.listDetail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.quantity,
+.unitPrice,
+.totalPrice,
+.removeItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.removeItem span {
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.quantityButton {
+    width: 100%;
+    height: 56px;
+    border: 1px solid #282726;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.quantityButton span {
+    width: 36px;
+    text-align: center;
+}
+
+.quantityButton button {
+    border: none;
+    outline: none;
+    background-color: #fff;
+    font-size: 26px;
+    font-weight: 500;
+    text-align: center;
+    height: 56px;
+    width: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    user-select: none;
+    cursor: pointer;
+}
+
+.quantityButton button:hover {
+    background-color: #282726;
+    color: #fff;
+}
+.quantityButton button:disabled:hover {
+    cursor: not-allowed;
+}
+
+@media (min-width: 1151px) {
+    .cartlist {
+        flex-basis: 800px;
+    }
+}
+
+@media (max-width: 700px) {
+    .cartlist {
+        width: 100%;
+    }
+    .listHeadArea {
+        display: none;
+    }
+    .listItem {
+        display: block;
+        min-width: 500px;
+        padding: 10px;
+        position: relative;
+        min-height: 120px;
+        height: 120px;
+        border: none;
+    }
+    .listImg {
+        position: absolute;
+        left: 0;
+        height: 100%;
+    }
+    .listDesc {
+        position: absolute;
+        left: 130px;
+        top: 10px;
+        width: 40%;
+    }
+    .listName {
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    .listDetail {
+        width: 100%;
+    }
+    .listDetail div {
+        width: 40%;
+        display: flex;
+        align-items: center;
+    }
+    .listDetail div span:first-child {
+        color: #a57b51;
+    }
+    .listDetail div span:nth-child(2) {
+        padding-left: 20px;
+    }
+    .removeItem {
+        position: absolute;
+        right: 0;
+        top: 5px;
+    }
+    .totalPrice {
+        display: none;
+    }
+    .unitPrice {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    .quantity {
+        position: absolute;
+        left: 130px;
+        bottom: 0px;
+        width: 90px;
+        height: 30px;
+    }
+    .quantityButton {
+        height: 30px;
+    }
+    .listName {
+        max-height: 36px;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 700px) {
+    .listItem {
+        width: 100%;
+        min-width: 100%;
+        margin-bottom: 50px;
+    }
+}

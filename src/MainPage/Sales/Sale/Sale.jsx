@@ -3,6 +3,7 @@ import style from "./sale.module.css";
 import SaleCard from "./SaleCard/SaleCard";
 import ShowMore from "../../../../components/ShowMore/ShowMore";
 import Link from "next/link";
+import Loader from "../../../../components/Loader/Loader";
 
 const Sale = () => {
     const [sale, setSale] = useState();
@@ -41,6 +42,7 @@ const Sale = () => {
 
     return (
         <div className={style.sale}>
+            
             {sale ? (
                 sale.map((item, index) => {
                     return (
@@ -87,7 +89,7 @@ const Sale = () => {
                     );
                 })
             ) : (
-                <h2>loading...</h2>
+                <Loader/>
             )}
         </div>
     );

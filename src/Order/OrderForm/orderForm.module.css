@@ -1,0 +1,99 @@
+.orderForm {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 70%;
+}
+
+.customer,
+.delivery,
+.receiver,
+.paymentMethod {
+    width: 40%;
+}
+
+.paymentMethod h3,
+.delivery h3,
+.receiver h3,
+.customer h3 {
+    font-size: 16px;
+    color: #a57b51;
+    margin: 35px 0 15px 0;
+}
+
+.receiver input,
+.customer input,
+.delivery input {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #979797;
+    font-size: 14px;
+    width: 230px;
+    margin-bottom: 45px;
+    color: var(--primary-background-color);
+}
+.customer textarea {
+    width: 230px;
+    min-width: 230px;
+    max-width: 230px;
+    height: auto;
+    min-height: 100px;
+    border: 1px solid #979797;
+    padding: 10px;
+}
+
+.paymentMethod select,
+.delivery select {
+    font-size: 14px;
+    width: 230px;
+    margin-bottom: 45px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #979797;
+    color: var(--primary-background-color);
+}
+
+@media (max-width: 1150px) {
+    .orderForm {
+        width: 100%;
+        padding: 30px;
+    }
+    .customer,
+    .delivery,
+    .receiver,
+    .paymentMethod {
+        width: 50%;
+    }
+    .receiver input,
+    .customer input,
+    .delivery input,
+    .paymentMethod select,
+    .delivery select {
+        width: 80%;
+    }
+    .customer textarea {
+        width: 80%;
+        min-width: 80%;
+        max-width: 80%;
+    }
+}
+@media (max-width: 450px) {
+    .customer,
+    .delivery,
+    .receiver,
+    .paymentMethod {
+        width: 100%;
+    }
+    .receiver input,
+    .customer input,
+    .delivery input,
+    .paymentMethod select,
+    .delivery select {
+        width: 100%;
+    }
+    .customer textarea {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
