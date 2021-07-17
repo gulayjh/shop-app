@@ -12,6 +12,9 @@ const OneProduct = () => {
     const [productDetail, setProductDetail] = useState();
     const [mainImage, setMainImage] = useState();
     const [isLoading, setIsLoading] = useState(false);
+    const [showColor, setShowColor] = useState([]);
+    const [itemSize, setItemSize] = useState("");
+    const [selectedSize, setSelectedSize] = useState();
 
     const router = useRouter();
     const productId = router.query.code;
@@ -24,10 +27,20 @@ const OneProduct = () => {
             setIsLoading(false);
         });
     }, [router.query.code]);
+
     useEffect(() => {
         if (productDetail) {
             setMainImage(productDetail.mainImageUrl);
-            console.log(productDetail);
+            setItemSize(productDetail.itemsize);
+            setSelectedSize(productDetail.itemsize[0].name);
+
+            let initialSize = productDetail.itemsize[0].name;
+            let initialSizes = productDetail.itemsize.filter(
+                (size) => size.name === initialSize
+            );
+            let initialColors = initialSizes.map((color) => color.colorId);
+
+            setShowColor(initialColors);
         }
     }, [productDetail]);
 
@@ -39,7 +52,10 @@ const OneProduct = () => {
             setQuantity(quantity - 1);
         }
     };
+
     let image;
+    let showSizes = [];
+    console.log(showSizes);
 
     if (mainImage) {
         image = {
@@ -53,6 +69,14 @@ const OneProduct = () => {
 
     const imageHandler = (imageUrl) => {
         setMainImage(imageUrl);
+    };
+
+    const chooseSize = (id, name) => {
+        setSelectedSize(name);
+        let updatedSizes;
+        updatedSizes = itemSize.filter((size) => size.id === id);
+        let colorId = updatedSizes.map((size) => size.colorId);
+        setShowColor(colorId);
     };
 
     return (
@@ -108,11 +132,38 @@ const OneProduct = () => {
                                         <h4>Size</h4>
                                         <div className={style.sizeButton}>
                                             {productDetail.itemsize.map(
-                                                (size) => (
-                                                    <button key={size.id}>
-                                                        {size.name}
-                                                    </button>
-                                                )
+                                                (size) => {
+                                                    if (
+                                                        !(
+                                                            showSizes.indexOf(
+                                                                size.name
+                                                            ) > -1
+                                                        )
+                                                    ) {
+                                                        showSizes.push(
+                                                            size.name
+                                                        );
+                                                        return (
+                                                            <button
+                                                                key={size.id}
+                                                                onClick={() =>
+                                                                    chooseSize(
+                                                                        size.id,
+                                                                        size.name
+                                                                    )
+                                                                }
+                                                                className={`${
+                                                                    selectedSize ===
+                                                                    size.name
+                                                                        ? style.sizeActive
+                                                                        : style.sizeDeactive
+                                                                }`}
+                                                            >
+                                                                {size.name}
+                                                            </button>
+                                                        );
+                                                    }
+                                                }
                                             )}
                                         </div>
                                     </div>
@@ -135,11 +186,25 @@ const OneProduct = () => {
                                                 return (
                                                     color.code && (
                                                         <button
+                                                            className={`${
+                                                                showColor.indexOf(
+                                                                    color.id
+                                                                ) > -1
+                                                                    ? style.colorActive
+                                                                    : style.colorDeactive
+                                                            }`}
                                                             key={color.id}
                                                             style={{
                                                                 backgroundColor:
                                                                     color.code,
                                                             }}
+                                                            disabled={
+                                                                showColor.indexOf(
+                                                                    color.id
+                                                                ) > -1
+                                                                    ? false
+                                                                    : true
+                                                            }
                                                         ></button>
                                                     )
                                                 );
