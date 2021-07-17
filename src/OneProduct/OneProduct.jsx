@@ -1,11 +1,12 @@
 import ReactImageZoom from "react-image-zoom";
 import style from "./oneProduct.module.css";
-import Button from "../../components/Button/Button";
+import Link from "next/link";
 import SimilarProducts from "./SimilarProducts/SimilarProducts";
 import { useEffect, useState, Fragment } from "react";
 import { useRouter } from "next/dist/client/router";
 import axios from "axios";
 import Loader from "../../components/Loader/Loader";
+import { baseURL, token } from "../../utils";
 
 const OneProduct = () => {
     const [quantity, setQuantity] = useState(0);
@@ -15,6 +16,7 @@ const OneProduct = () => {
     const [showColor, setShowColor] = useState([]);
     const [itemSize, setItemSize] = useState("");
     const [selectedSize, setSelectedSize] = useState();
+    const [selectedColor, setSelectedColor] = useState();
 
     const router = useRouter();
     const productId = router.query.code;
@@ -32,7 +34,7 @@ const OneProduct = () => {
         if (productDetail) {
             setMainImage(productDetail.mainImageUrl);
             setItemSize(productDetail.itemsize);
-            setSelectedSize(productDetail.itemsize[0].name);
+            setSelectedSize(productDetail.itemsize[0].id);
 
             let initialSize = productDetail.itemsize[0].name;
             let initialSizes = productDetail.itemsize.filter(
@@ -55,7 +57,6 @@ const OneProduct = () => {
 
     let image;
     let showSizes = [];
-    console.log(showSizes);
 
     if (mainImage) {
         image = {
@@ -71,12 +72,29 @@ const OneProduct = () => {
         setMainImage(imageUrl);
     };
 
-    const chooseSize = (id, name) => {
-        setSelectedSize(name);
+    const chooseSize = (id) => {
+        setSelectedSize(id);
         let updatedSizes;
         updatedSizes = itemSize.filter((size) => size.id === id);
         let colorId = updatedSizes.map((size) => size.colorId);
         setShowColor(colorId);
+    };
+    const selectColor = (id) => {
+        setSelectedColor(id);
+    };
+
+    const addToCart = () => {
+        axios
+            .post(`${baseURL}Cart/addtocart`, {
+                goodsId: productDetail.good.id,
+                sizeId: Number(selectedSize),
+                colorId: selectedColor,
+                token: token,
+                counter: quantity,
+            })
+            .then((res) => {
+                console.log(res);
+            });
     };
 
     return (
@@ -95,6 +113,24 @@ const OneProduct = () => {
                                         )}
                                     </div>
                                     <div className={style.smallImages}>
+                                        <div
+                                            className={`${style.imageArea} ${
+                                                productDetail.mainimage ===
+                                                mainImage
+                                                    ? style.imgActive
+                                                    : null
+                                            }`}
+                                            onClick={() =>
+                                                imageHandler(
+                                                    productDetail.mainimage
+                                                )
+                                            }
+                                        >
+                                            <img
+                                                src={productDetail.mainimage}
+                                                alt=""
+                                            />
+                                        </div>
                                         {productDetail.goodimages.map(
                                             (imageUrl) => (
                                                 <div
@@ -148,13 +184,12 @@ const OneProduct = () => {
                                                                 key={size.id}
                                                                 onClick={() =>
                                                                     chooseSize(
-                                                                        size.id,
-                                                                        size.name
+                                                                        size.id
                                                                     )
                                                                 }
                                                                 className={`${
                                                                     selectedSize ===
-                                                                    size.name
+                                                                    size.id
                                                                         ? style.sizeActive
                                                                         : style.sizeDeactive
                                                                 }`}
@@ -192,6 +227,10 @@ const OneProduct = () => {
                                                                 ) > -1
                                                                     ? style.colorActive
                                                                     : style.colorDeactive
+                                                            } ${
+                                                                selectedColor ===
+                                                                    color.id &&
+                                                                style.colorSelected
                                                             }`}
                                                             key={color.id}
                                                             style={{
@@ -205,6 +244,11 @@ const OneProduct = () => {
                                                                     ? false
                                                                     : true
                                                             }
+                                                            onClick={() =>
+                                                                selectColor(
+                                                                    color.id
+                                                                )
+                                                            }
                                                         ></button>
                                                     )
                                                 );
@@ -213,10 +257,21 @@ const OneProduct = () => {
                                     </div>
 
                                     <div className={style.addToCart}>
-                                        <Button
-                                            link="/"
-                                            buttonText="ADD TO CART"
-                                        />
+                                        <div className={style.Button}>
+                                            <Link href="cart">
+                                                <button
+                                                    onClick={addToCart}
+                                                    disabled={
+                                                        selectedColor &&
+                                                        quantity > 0
+                                                            ? false
+                                                            : true
+                                                    }
+                                                >
+                                                    Add to Cart
+                                                </button>
+                                            </Link>
+                                        </div>
                                     </div>
 
                                     <div className={style.productInfo}>
