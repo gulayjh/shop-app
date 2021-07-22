@@ -1,17 +1,22 @@
 import ReactImageZoom from "react-image-zoom";
 import style from "./oneProduct.module.css";
-import Button from "../../components/Button/Button";
+import Link from "next/link";
 import SimilarProducts from "./SimilarProducts/SimilarProducts";
 import { useEffect, useState, Fragment } from "react";
 import { useRouter } from "next/dist/client/router";
 import axios from "axios";
 import Loader from "../../components/Loader/Loader";
+import { baseURL, token } from "../../utils";
 
 const OneProduct = () => {
     const [quantity, setQuantity] = useState(0);
     const [productDetail, setProductDetail] = useState();
     const [mainImage, setMainImage] = useState();
     const [isLoading, setIsLoading] = useState(false);
+    const [showColor, setShowColor] = useState([]);
+    const [itemSize, setItemSize] = useState("");
+    const [selectedSize, setSelectedSize] = useState();
+    const [selectedColor, setSelectedColor] = useState();
 
     const router = useRouter();
     const productId = router.query.code;
@@ -24,10 +29,20 @@ const OneProduct = () => {
             setIsLoading(false);
         });
     }, [router.query.code]);
+
     useEffect(() => {
         if (productDetail) {
             setMainImage(productDetail.mainImageUrl);
-            console.log(productDetail);
+            setItemSize(productDetail.itemsize);
+            setSelectedSize(productDetail.itemsize[0].id);
+
+            let initialSize = productDetail.itemsize[0].name;
+            let initialSizes = productDetail.itemsize.filter(
+                (size) => size.name === initialSize
+            );
+            let initialColors = initialSizes.map((color) => color.colorId);
+
+            setShowColor(initialColors);
         }
     }, [productDetail]);
 
@@ -39,7 +54,9 @@ const OneProduct = () => {
             setQuantity(quantity - 1);
         }
     };
+
     let image;
+    let showSizes = [];
 
     if (mainImage) {
         image = {
@@ -53,6 +70,31 @@ const OneProduct = () => {
 
     const imageHandler = (imageUrl) => {
         setMainImage(imageUrl);
+    };
+
+    const chooseSize = (id) => {
+        setSelectedSize(id);
+        let updatedSizes;
+        updatedSizes = itemSize.filter((size) => size.id === id);
+        let colorId = updatedSizes.map((size) => size.colorId);
+        setShowColor(colorId);
+    };
+    const selectColor = (id) => {
+        setSelectedColor(id);
+    };
+
+    const addToCart = () => {
+        axios
+            .post(`${baseURL}Cart/addtocart`, {
+                goodsId: productDetail.good.id,
+                sizeId: Number(selectedSize),
+                colorId: selectedColor,
+                token: token,
+                counter: quantity,
+            })
+            .then((res) => {
+                console.log(res);
+            });
     };
 
     return (
@@ -71,6 +113,24 @@ const OneProduct = () => {
                                         )}
                                     </div>
                                     <div className={style.smallImages}>
+                                        <div
+                                            className={`${style.imageArea} ${
+                                                productDetail.mainimage ===
+                                                mainImage
+                                                    ? style.imgActive
+                                                    : null
+                                            }`}
+                                            onClick={() =>
+                                                imageHandler(
+                                                    productDetail.mainimage
+                                                )
+                                            }
+                                        >
+                                            <img
+                                                src={productDetail.mainimage}
+                                                alt=""
+                                            />
+                                        </div>
                                         {productDetail.goodimages.map(
                                             (imageUrl) => (
                                                 <div
@@ -108,11 +168,37 @@ const OneProduct = () => {
                                         <h4>Size</h4>
                                         <div className={style.sizeButton}>
                                             {productDetail.itemsize.map(
-                                                (size) => (
-                                                    <button key={size.id}>
-                                                        {size.name}
-                                                    </button>
-                                                )
+                                                (size) => {
+                                                    if (
+                                                        !(
+                                                            showSizes.indexOf(
+                                                                size.name
+                                                            ) > -1
+                                                        )
+                                                    ) {
+                                                        showSizes.push(
+                                                            size.name
+                                                        );
+                                                        return (
+                                                            <button
+                                                                key={size.id}
+                                                                onClick={() =>
+                                                                    chooseSize(
+                                                                        size.id
+                                                                    )
+                                                                }
+                                                                className={`${
+                                                                    selectedSize ===
+                                                                    size.id
+                                                                        ? style.sizeActive
+                                                                        : style.sizeDeactive
+                                                                }`}
+                                                            >
+                                                                {size.name}
+                                                            </button>
+                                                        );
+                                                    }
+                                                }
                                             )}
                                         </div>
                                     </div>
@@ -135,11 +221,34 @@ const OneProduct = () => {
                                                 return (
                                                     color.code && (
                                                         <button
+                                                            className={`${
+                                                                showColor.indexOf(
+                                                                    color.id
+                                                                ) > -1
+                                                                    ? style.colorActive
+                                                                    : style.colorDeactive
+                                                            } ${
+                                                                selectedColor ===
+                                                                    color.id &&
+                                                                style.colorSelected
+                                                            }`}
                                                             key={color.id}
                                                             style={{
                                                                 backgroundColor:
                                                                     color.code,
                                                             }}
+                                                            disabled={
+                                                                showColor.indexOf(
+                                                                    color.id
+                                                                ) > -1
+                                                                    ? false
+                                                                    : true
+                                                            }
+                                                            onClick={() =>
+                                                                selectColor(
+                                                                    color.id
+                                                                )
+                                                            }
                                                         ></button>
                                                     )
                                                 );
@@ -148,10 +257,21 @@ const OneProduct = () => {
                                     </div>
 
                                     <div className={style.addToCart}>
-                                        <Button
-                                            link="/"
-                                            buttonText="ADD TO CART"
-                                        />
+                                        <div className={style.Button}>
+                                            <Link href="cart">
+                                                <button
+                                                    onClick={addToCart}
+                                                    disabled={
+                                                        selectedColor &&
+                                                        quantity > 0
+                                                            ? false
+                                                            : true
+                                                    }
+                                                >
+                                                    Add to Cart
+                                                </button>
+                                            </Link>
+                                        </div>
                                     </div>
 
                                     <div className={style.productInfo}>
