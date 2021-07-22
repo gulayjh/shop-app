@@ -5,7 +5,7 @@ import Sale from "./Sales/Sale/Sale";
 
 const MainPage = () => {
     const [productNumber, setProductNumber] = useState(4);
- 
+
     return (
 
         <div className={style.mainContainer}>

@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router';
 import CatalogContent from './CatalogContent/CatalogContent'
 import Filters from './Filters/Filters';
+import PriceSlider from '../../components/PriceSlider/PriceSlider'
 
 
 const Catalog = () => {
@@ -36,6 +37,7 @@ const Catalog = () => {
                 <Filters
                     filterData={filterData}
                 />
+
             </div>
             <div>
                 <CatalogContent

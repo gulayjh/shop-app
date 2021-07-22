@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { HiUser, HiMail } from 'react-icons/hi';
 import { AiFillEye, AiFillEyeInvisible, AiOutlineArrowLeft } from 'react-icons/ai';
 
-const Login = () => {
+const Login = (props) => {
     const [phonenumber, setPhonenumber] = useState('')
     const [password, setPassword] = useState('')
     const [phonenumberCheck, setPhonenumberCheck] = useState(true)
@@ -37,7 +37,7 @@ const Login = () => {
                 "oldToken": token
             }
 
-            axios.post(baseURL + `Account/register`, LoginData)
+            axios.post(baseURL + `Account/login`, LoginData)
             .then((response) => {
                 if ((response.data.statusCode === 200)) {
                     props.setLoggedIn(true)

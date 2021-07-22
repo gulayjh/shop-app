@@ -1,11 +1,9 @@
-.SaleTag {
+.SaleTag button{
     position: absolute;
     top: 0px;
     right: 10px;
     padding: 10px;
     display: flex;
-    color: white;
-    background: #282726;
     border-radius: 50%;
     width: 56px;
     height: 56px;
@@ -14,7 +12,11 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    font-size: 12px;
+    outline: none;
+    border: none;
+    box-shadow: 5px 6px 14px 1px #0000003a;    
+    font-size: 16px;
+    color: var(--primary-background-color);
 }
 /* @media only screen and (max-width: 800px){
     .SaleTag{

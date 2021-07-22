@@ -1,12 +1,11 @@
 .ProductCardContainer {
   display: flex;
-  width: 800px;
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
 }
 .ProductCardContent {
-  width: 250px;
+  max-width: 250px;
   height: 500px;
   margin-bottom: 50px;
   display: flex;
