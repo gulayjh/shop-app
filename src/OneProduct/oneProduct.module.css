@@ -88,7 +88,7 @@
 .quantityButton button {
     border: none;
     outline: none;
-    background-color: #FFF;
+    background-color: #fff;
     font-size: 26px;
     font-weight: 500;
     text-align: center;
@@ -107,7 +107,14 @@
     background-color: #282726;
     color: #fff;
 }
-
+.sizeActive {
+    background-color: #282726 !important;
+    color: #fff !important;
+}
+.sizeDeactive {
+    background-color: #fff !important;
+    color: #282726 !important;
+}
 
 .productColor h4 {
     font-size: 21px;
@@ -121,11 +128,14 @@
     outline: none;
     border: none;
     background-color: #fff;
-    border: 1px solid #282726;
     margin-right: 12px;
     color: #282726;
     margin-bottom: 30px;
     cursor: pointer;
+    border: 1px solid transparent;
+}
+.productColor button:disabled {
+    cursor: not-allowed;
 }
 .addToCart {
     margin-bottom: 30px;
@@ -145,11 +155,13 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+    margin-right: 10px;
 }
 .smallImages {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    gap: 10px;
 }
 .imageArea:hover {
     border: 1px solid #282726;
@@ -175,4 +187,42 @@
     .productDetail {
         max-width: 100%;
     }
+}
+
+.colorActive {
+    opacity: 1;
+}
+
+.colorDeactive {
+    opacity: 0.5;
+}
+
+.Button button {
+    border: none;
+    outline: none;
+    margin: 10px 0px;
+    padding: 10px 50px;
+    background: var(--primary-background-color);
+    color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.5s;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.Button button:hover {
+    background: var(--primary-color);
+    color: var(--primary-background-color);
+}
+.Button button:disabled {
+    background: var(--primary-color);
+    color: var(--primary-background-color);
+    cursor: not-allowed;
+}
+
+.colorSelected {
+    border: 1px solid #282726 !important;
 }

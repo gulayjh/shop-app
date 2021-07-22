@@ -6,7 +6,7 @@ const Button = (props) => {
     return (
         <div className={style.Button}>
             <Link href={props.link}>
-                <a>
+                <a onClick={props.click}>
                     {props.buttonText}
                 </a>
             </Link>

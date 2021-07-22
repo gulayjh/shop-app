@@ -30,7 +30,7 @@ a {
     --scroll-color: #302e2f;
 }
 
-.notFound{
+.notFound {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,6 +38,10 @@ a {
     height: 70vh;
     letter-spacing: 1px;
 }
-.notFound h3 a{
+.notFound h3 a {
     text-decoration: underline;
+}
+
+.js-image-zoom__zoomed-image {
+    border: 2px solid #000;
 }

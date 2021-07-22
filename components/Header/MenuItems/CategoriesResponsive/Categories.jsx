@@ -30,7 +30,7 @@ const CategoriesResponsive = () => {
             {data && data.length > 0 && data.map((item) => {
                 if (item.parentId === null) {
                     return (
-                        <div className={style.CategoryContainer}>
+                        <div className={style.CategoryContainer} key={item.id}>
                             <button onClick={() => handleClick(item.id)}>
                                 {item.name}
                             </button>

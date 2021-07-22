@@ -17,7 +17,7 @@ const Categories = () => {
             {data && data.length > 0 && data.map((item) => {
                 if (item.parentId === null) {
                     return (
-                        <div className={style.CategoryContainer}>
+                        <div className={style.CategoryContainer} key={item.name}>
                             <Link href='/'>
                                 <a onMouseEnter={() => setShowDropDown(true)}>
                                     {item.name}
