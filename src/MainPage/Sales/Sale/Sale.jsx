@@ -1,6 +1,7 @@
 import { useEffect, Fragment, useState } from "react";
 import style from "./sale.module.css";
 import SaleCard from "./SaleCard/SaleCard";
+import SaleTag from "../../../../components/SaleTag/SaleTag";
 import ShowMore from "../../../../components/ShowMore/ShowMore";
 import Link from "next/link";
 import Loader from "../../../../components/Loader/Loader";
@@ -9,6 +10,8 @@ const Sale = () => {
     const [sale, setSale] = useState();
     const [newSale, setNewSale] = useState();
     const [defaultShowCount, setDefaultShowCount] = useState(4);
+    const [addToFav, setAddToFav] = useState([])
+
 
     let responseData = "";
 
@@ -42,7 +45,7 @@ const Sale = () => {
 
     return (
         <div className={style.sale}>
-            
+
             {sale ? (
                 sale.map((item, index) => {
                     return (
@@ -52,21 +55,26 @@ const Sale = () => {
                                 {item.goods.map((v, index) => {
                                     return (
                                         index < item.showCount && (
-                                            <Link
-                                                href={{
-                                                    pathname: "/oneproduct",
-                                                    query: { code: v.code },
-                                                }}
-                                                key={v.id}
-                                            >
-                                                <div className={style.saleCard}>
-                                                    <SaleCard
-                                                        price={v.price}
-                                                        name={v.name}
-                                                        image={v.imageUrl}
-                                                    />
-                                                </div>
-                                            </Link>
+                                            <div className={style.saleCard}>
+                                                <Link
+                                                    href={{
+                                                        pathname: "/oneproduct",
+                                                        query: { code: v.code },
+                                                    }}
+                                                    key={v.id}
+                                                >
+                                                    <div>
+                                                        <SaleCard
+                                                            price={v.price}
+                                                            name={v.name}
+                                                            image={v.imageUrl}
+                                                        />
+                                                    </div>
+                                                </Link>
+                                                <SaleTag
+                                                    id={v.id}
+                                                />
+                                            </div>
                                         )
                                     );
                                 })}
@@ -89,7 +97,7 @@ const Sale = () => {
                     );
                 })
             ) : (
-                <Loader/>
+                <Loader />
             )}
         </div>
     );
