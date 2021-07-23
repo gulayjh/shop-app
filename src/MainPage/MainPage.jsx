@@ -8,10 +8,8 @@ import useTranslation from "next-translate/useTranslation";
 const MainPage = () => {
     const [productNumber, setProductNumber] = useState(4);
     let { t } = useTranslation("common");
-    console.log(t);
 
     let router = useRouter();
-    console.log(router);
 
     return (
         <div className={style.mainContainer}>

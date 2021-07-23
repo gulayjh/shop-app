@@ -15,9 +15,9 @@ const RightContent = () => {
                 <ul className={style.langList}>
                     {router.locales.map((locale) => {
                         return (
-                            <Fragment>
+                            <Fragment key={locale}>
                                 {router.locale !== locale && (
-                                    <li key={locale}>
+                                    <li>
                                         <Link
                                             href={router.asPath}
                                             locale={locale}
