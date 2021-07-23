@@ -41,7 +41,11 @@ const CartList = (props) => {
                                     <button
                                         disabled={props.isChanging}
                                         onClick={() =>
-                                            props.decreaseHandler(item.goodsId)
+                                            props.decreaseHandler(
+                                                item.goodsId,
+                                                item.sizeId,
+                                                item.colorId
+                                            )
                                         }
                                     >
                                         -

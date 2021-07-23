@@ -31,6 +31,7 @@
   box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.1);
   transition: 0.8s;
   font-size: 14px;
+  z-index: 9;
 }
 .CategoriesContent {
   margin-top: 40px;

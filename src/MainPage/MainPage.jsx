@@ -2,16 +2,22 @@ import React, { useState } from "react";
 import style from "./mainPage.module.css";
 import MainSlider from "./Slider/Slider";
 import Sale from "./Sales/Sale/Sale";
+import { useRouter } from "next/router";
+import useTranslation from "next-translate/useTranslation";
 
 const MainPage = () => {
     const [productNumber, setProductNumber] = useState(4);
- 
-    return (
+    let { t } = useTranslation("common");
+    console.log(t);
 
+    let router = useRouter();
+    console.log(router);
+
+    return (
         <div className={style.mainContainer}>
             <MainSlider />
             <div className={style.mainDescription}>
-                <h3>Our philosophy</h3>
+                <h3>{t("greeting")}</h3>
                 <h5>
                     We're driven by community and often team up with brands we
                     love and other like-minded individuals. It is our goal to
@@ -20,7 +26,6 @@ const MainPage = () => {
                 </h5>
             </div>
             <Sale />
-
         </div>
     );
 };

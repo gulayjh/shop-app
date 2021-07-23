@@ -4,7 +4,8 @@ import Footer from "../components/Footer/footer";
 import Header from "../components/Header/header";
 // import SideDrawer from "../components/Header/SideDrawer/SideDrawer";
 import { useState } from "react";
-import {ContextProvider} from '../store/context'
+import {ContextProvider} from '../store/context';
+import { appWithTranslation } from 'next-i18next';
 
 function MyApp({ Component, pageProps }) {
     const [sideDrawer, setSideDrawer] = useState(false);
@@ -23,9 +24,9 @@ function MyApp({ Component, pageProps }) {
             {sideDrawer ? <SideDrawer /> : null}
             <Component {...pageProps} />
 
-            <Footer />
+            {/* <Footer /> */}
         </ContextProvider>
     );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

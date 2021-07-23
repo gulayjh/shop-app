@@ -4,6 +4,7 @@ import style from "./similarProducts.module.css";
 import SimilarProductsCard from "./SimilarProductsCard/SimilarProductCard";
 import ShowMore from "../../../components/ShowMore/ShowMore";
 import Link from "next/link";
+import { baseURL } from "../../../utils";
 
 const SimilarProducts = (props) => {
     const [similar, setSimilar] = useState();
@@ -13,7 +14,7 @@ const SimilarProducts = (props) => {
     const categoryId = props.categoryId;
 
     useEffect(() => {
-        const url = `https://shopapi.inloya.com/api/GoodsInfo/getsamectgrgoods?lng=az&categoryid=${categoryId}&goodsid=${goodsId}
+        const url = `${baseURL}GoodsInfo/getsamectgrgoods?lng=az&categoryid=${categoryId}&goodsid=${goodsId}
         `;
         axios.get(url).then((res) => setSimilar(res.data.obj));
     }, []);

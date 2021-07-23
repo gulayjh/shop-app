@@ -4,6 +4,7 @@ import SaleCard from "./SaleCard/SaleCard";
 import ShowMore from "../../../../components/ShowMore/ShowMore";
 import Link from "next/link";
 import Loader from "../../../../components/Loader/Loader";
+import { baseURL } from "../../../../utils";
 
 const Sale = () => {
     const [sale, setSale] = useState();
@@ -14,7 +15,7 @@ const Sale = () => {
 
     useEffect(async () => {
         const response = await fetch(
-            "https://shopapi.inloya.com/api/Compilation/mainpage?token=%2F&lng=en"
+            `${baseURL}Compilation/mainpage?token=%2F&lng=en`
         );
         responseData = await response.json();
 

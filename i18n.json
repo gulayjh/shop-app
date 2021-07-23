@@ -1,0 +1,8 @@
+{
+    "defaultLocale": "az",
+    "locales": ["az", "en", "ru"],
+    "localeDetection": false,
+    "pages": {
+        "*": ["mainpage"]   
+    }
+}
