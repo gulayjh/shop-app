@@ -45,3 +45,12 @@ a {
 .js-image-zoom__zoomed-image {
     border: 2px solid #000;
 }
+
+@media (max-width: 600px){
+    .js-image-zoom__zoomed-image{
+        display: none!important;
+    }
+    .js-image-zoom__zoomed-area{
+        display: none!important;
+    }
+}

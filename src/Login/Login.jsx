@@ -30,7 +30,7 @@ const Login = (props) => {
         }
     }
     const handleSubmit = () => {
-        if (phonenumberCheck && passwordCheck) {
+        if (phonenumber.length > 0 && phonenumberCheck && password.length > 0 && passwordCheck) {
             const LoginData = {
                 "phonenumber": phonenumber,
                 "password": password,
@@ -38,11 +38,11 @@ const Login = (props) => {
             }
 
             axios.post(baseURL + `Account/login`, LoginData)
-            .then((response) => {
-                if ((response.data.statusCode === 200)) {
-                    props.setLoggedIn(true)
-                }
-            })
+                .then((response) => {
+                    if ((response.data.statusCode === 200)) {
+                        props.setLoggedIn(true)
+                    }
+                })
         }
     }
 

@@ -177,15 +177,46 @@
         flex-flow: column;
         width: 100%;
         padding: 30px;
+        margin-top: 0;
     }
     .productDetail {
         max-width: 80%;
+    }
+    .smallImages {
+        overflow-x: auto;
+        overflow-y: hidden;
+        height: 96px;
+        white-space: nowrap;
+        display: block;
+    }
+    .imageArea {
+        display: inline-block;
+    }
+    .imageZoomContainer div:first-child {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
 @media (max-width: 500px) {
     .productDetail {
         max-width: 100%;
+    }
+    .productName{
+        margin-bottom: 0;
+    }
+    .productName h2{
+        margin-bottom: 0;
+    }
+    .productName h3{
+        margin-top: 0;
+    }
+    .productPrice{
+        margin-bottom: 0;
+    }
+    .productQuantity h4{
+        margin-top: 0;
     }
 }
 

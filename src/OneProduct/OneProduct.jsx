@@ -17,10 +17,27 @@ const OneProduct = () => {
     const [itemSize, setItemSize] = useState("");
     const [selectedSize, setSelectedSize] = useState();
     const [selectedColor, setSelectedColor] = useState();
+    const [width, setWindowWidth] = useState(0);
+    const [imageWidth, setImageWidth] = useState(0);
+    const [imageHeight, setImageHeight] = useState(0);
+
+    const [showSideMenu, setShowSideMenu] = useState(false);
+
+    useEffect(() => {
+        updateDimensions();
+
+        window.addEventListener("resize", updateDimensions);
+        return () => window.removeEventListener("resize", updateDimensions);
+    }, []);
+
+    const updateDimensions = () => {
+        const width = window.innerWidth;
+        setWindowWidth(width);
+    };
 
     const router = useRouter();
     const productId = router.query.code;
-    const url = `https://shopapi.inloya.com/api/GoodsInfo/goodsinfo?lng=az&code=${productId}`;
+    const url = `${baseURL}GoodsInfo/goodsinfo?lng=az&code=${productId}`;
 
     useEffect(() => {
         setIsLoading(true);
@@ -46,6 +63,16 @@ const OneProduct = () => {
         }
     }, [productDetail]);
 
+    useEffect(() => {
+        if (width > 600) {
+            setImageWidth(560);
+            setImageHeight(710);
+        } else {
+            setImageWidth(280);
+            setImageHeight(355);
+        }
+    }, [width]);
+
     const increaseHandler = () => {
         setQuantity(quantity + 1);
     };
@@ -60,9 +87,9 @@ const OneProduct = () => {
 
     if (mainImage) {
         image = {
-            width: 560,
+            width: imageWidth,
             zoomWidth: 200,
-            height: 710,
+            height: imageHeight,
             scale: 0.4,
             img: mainImage,
         };
@@ -107,7 +134,12 @@ const OneProduct = () => {
                                 <div className={style.productImage}>
                                     <div className={style.mainImage}>
                                         {mainImage && (
-                                            <div style={{ maxWidth: "900px" }}>
+                                            <div
+                                                style={{ maxWidth: "900px" }}
+                                                className={
+                                                    style.imageZoomContainer
+                                                }
+                                            >
                                                 <ReactImageZoom {...image} />
                                             </div>
                                         )}

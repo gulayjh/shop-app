@@ -1,16 +1,60 @@
 .RightContent {
-  display: flex;
-  height: 100px;
-  padding-right: 20px;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 25px;
+    display: flex;
+    height: 100px;
+    padding-right: 20px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 25px;
 }
-.RightContent a{
+.RightContent a {
     padding-left: 20px;
     color: var(--primary-background-color);
 }
 
-.RightContent a:hover{
+.RightContent a:hover {
     color: var(--login-color);
+}
+
+.RightContent select {
+    border: none;
+    outline: none;
+}
+
+.langDrop {
+    height: 100%;
+    position: relative;
+}
+
+.langName {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.langList {
+    display: none;
+    position: absolute;
+    z-index: 9;
+    background-color: #fff;
+    list-style: none;
+    padding: 0;
+    min-width: 100px;
+    text-align: center;
+    top: 54px;
+    left: -35px;
+}
+.langList li {
+    text-align: center;
+    width: 100%;
+}
+.langList li a {
+    padding: 0;
+}
+
+.langName:hover + .langList {
+    display: block;
+}
+.langList:hover {
+    display: block;
 }
